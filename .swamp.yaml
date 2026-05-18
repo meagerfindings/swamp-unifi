@@ -1,0 +1,9 @@
+swampVersion: 20260516.045246.0
+initializedAt: '2026-05-17T23:33:34.037Z'
+repoId: a0602133-ee9c-492e-92a9-a588f9d63503
+tools:
+  - claude
+  - opencode
+  - codex
+gitignoreManaged: true
+upgradedAt: '2026-05-17T23:33:36.142Z'
