@@ -11,9 +11,6 @@
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
 .claude/scheduled_tasks.json
-
-# Agent skills (managed by swamp)
-.agents/skills/
 # END swamp managed section
 
 # Local agent tooling — not part of the published extension
