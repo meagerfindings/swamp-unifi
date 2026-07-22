@@ -19,5 +19,5 @@
 
 
 # Personal workspace state — not part of the published extension
-vaults/
-models/
+/vaults/
+/models/
