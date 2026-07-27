@@ -7,7 +7,7 @@ import { totpCode } from "./totp.ts";
 
 export const UnifiGlobalArgsSchema = z.object({
   host: z.string().describe(
-    "UDM IP address or hostname, e.g. 192.168.1.1",
+    "UDM IP address or hostname, e.g. 192.0.2.1",
   ),
   username: z.string().describe("Local admin username"),
   password: z.string().meta({ sensitive: true }).describe(
