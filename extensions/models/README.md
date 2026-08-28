@@ -119,6 +119,33 @@ UDM controllers ship with a self-signed certificate. Deno's `fetch` cannot
 skip TLS verification, so this extension shells out to `curl -sk` for every
 request. `curl` must be on `PATH` (default on macOS and most Linux distros).
 
+## API notes
+
+- **`/stat/sta` and `/stat/device`** (used by `client.ts`'s `sync` and
+  `power-cycle-poe`) are confirmed still working on current UniFi OS
+  firmware (verified against UniFi Network 8.x, 2026-08).
+- **`/stat/event` (the legacy activity/event log) is gone.** It 404s on
+  current firmware. It's been replaced by a v2 endpoint not documented
+  anywhere in the legacy Network API docs:
+
+  ```
+  POST /proxy/network/v2/api/site/<site>/system-log/all
+  {
+    "timestampFrom": <ms>, "timestampTo": <ms>,
+    "severities": ["LOW","MEDIUM","HIGH","VERY_HIGH"],
+    "categories": ["CLIENT_DEVICES"],
+    "pageNumber": 0, "pageSize": 5000
+  }
+  ```
+
+  The response shape changed too — events carry structured `parameters`
+  keyed by role (`CLIENT`, `DEVICE`, `DEVICE_FROM`/`DEVICE_TO` on a roam,
+  `SIGNAL_STRENGTH`, `RADIO_BAND`, ...) rather than the old flat `EVT_WU_*`
+  records. Not implemented in this package — if you need
+  connect/disconnect/roam history, `swamp extension pull
+  @jon/unifi-roaming-diagnostics` adds a `syncEvents` method to this
+  package's `client` type that fetches and flattens it.
+
 ## Status
 
 Built and field-tested against a UDM Pro running UniFi Network 8.x.
