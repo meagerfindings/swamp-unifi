@@ -1,4 +1,4 @@
-swampVersion: 20261014.204224.0
+swampVersion: 20261102.072830.0
 initializedAt: "2026-05-17T23:33:34.037Z"
 repoId: a0602133-ee9c-492e-92a9-a588f9d63503
 tools:
@@ -6,5 +6,5 @@ tools:
   - opencode
   - codex
 gitignoreManaged: true
-upgradedAt: "2026-10-14T22:27:35.551Z"
+upgradedAt: "2026-11-03T17:54:35.397Z"
 lastSkillMigrationWarning: '2026-07-10T22:41:31.664Z'
